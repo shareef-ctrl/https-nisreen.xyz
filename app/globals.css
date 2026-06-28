@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --bg: #eef6f4;
+  --fg: #101828;
+}
+
+.dark {
+  color-scheme: dark;
+  --bg: #07131f;
+  --fg: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Dubai, "Segoe UI Variable Display", "Segoe UI", Tahoma, Arial, sans-serif;
+  font-feature-settings: "kern" 1, "liga" 1;
+  letter-spacing: 0;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.glass {
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.68);
+  box-shadow: 0 18px 60px rgba(8, 36, 63, 0.10);
+  backdrop-filter: blur(18px);
+}
+
+.dark .glass {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(13, 26, 42, 0.70);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.32);
+}
+
+.soft-grid {
+  background-image:
+    linear-gradient(rgba(15, 159, 154, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 159, 154, 0.08) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.gift-kenburns {
+  animation: gift-kenburns 18s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+.gift-elegant {
+  font-family: "Traditional Arabic", "Sakkal Majalla", "Dubai", "Segoe UI", Tahoma, Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+@keyframes gift-kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08) translate3d(-1.5%, 1%, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gift-kenburns {
+    animation: none;
+  }
+}
+
+@media print {
+  body {
+    background: #ffffff;
+  }
+
+  button {
+    display: none !important;
+  }
+
+  main {
+    background: #ffffff !important;
+  }
+}

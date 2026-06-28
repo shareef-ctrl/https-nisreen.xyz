@@ -1,0 +1,15 @@
+.next/
+node_modules/
+release/
+.env
+.env.local
+*.log
+.agents/
+.codex/
+tmp/
+output/
+nessren_alnimr_photos/
+nessren_only_photos/
+nessren_with_others_photos/
+public/gift/nessren-expanded/
+scripts/__pycache__/
