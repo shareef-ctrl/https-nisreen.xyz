@@ -42,11 +42,11 @@ const storyCards = [
   },
   {
     title: "القناة",
-    text: "هوية العنوان 24 تظهر بلونها الأحمر القوي وشعارها الرسمي، كجزء أساسي من الهدية."
+    text: "العنوان 24 حاضر باسمها وشعارها، في ذكرى عامها الأول ومسيرتها الإعلامية."
   },
   {
     title: "الأثر",
-    text: "صفحة تفاعلية قابلة للإرسال، تجمع الفيديو والصور ورسالة الإهداء في تجربة واحدة."
+    text: "ذكرى رقمية تحفظ رسالة المحبة والتقدير في صورة تليق بالمناسبة."
   }
 ];
 
@@ -156,7 +156,7 @@ export default function GiftPage() {
           <div className="max-w-3xl">
             <div className="mb-5 inline-flex items-center gap-2 border border-[#c9151d]/70 bg-black/44 px-4 py-2 text-sm font-black text-white backdrop-blur">
               <Sparkles className="h-4 w-4 text-[#ff2f3d]" />
-              تجربة رقمية حديثة بمناسبة العام الأول
+              إهداء خاص بمناسبة العام الأول
             </div>
             <p className="text-sm font-bold text-white/64">إهداء خاص إلى الأستاذة نسرين النمر</p>
             <h1 className="gift-elegant mt-3 text-5xl font-black leading-[1.02] sm:text-7xl lg:text-8xl">
@@ -164,7 +164,7 @@ export default function GiftPage() {
               <span className="block text-[#ff2f3d]">العنوان 24</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-9 text-white/82 sm:text-xl">
-              هدية إعلامية تفاعلية تجمع الشعار، الفيديو، الصور، ورسالة التقدير في تجربة واحدة جاهزة للإرسال.
+              تحية تقدير لقناة العنوان 24 وللأستاذة نسرين النمر، في ذكرى عام من الحضور والعطاء.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <button
@@ -218,8 +218,8 @@ export default function GiftPage() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
             <div>
-              <p className="text-sm font-black text-[#c9151d]">مركز الهدية</p>
-              <h2 className="mt-2 text-4xl font-black leading-tight sm:text-6xl">اختبر الهدية كما تشاء</h2>
+              <p className="text-sm font-black text-[#c9151d]">عام من العطاء</p>
+              <h2 className="mt-2 text-4xl font-black leading-tight sm:text-6xl">هدية تليق بالذكرى</h2>
             </div>
             <div className="grid grid-cols-3 border border-[#c9151d]/20 bg-white p-1 shadow-sm">
               {tabs.map((tab) => {
@@ -281,7 +281,7 @@ export default function GiftPage() {
                 <figcaption className="mt-5 border-t border-white/12 pt-5">
                   <p className="text-sm font-black text-[#ff2f3d]">هوية القناة</p>
                   <h3 className="mt-2 text-3xl font-black">العنوان 24.. حضور الخبر</h3>
-                  <p className="mt-3 leading-8 text-white/68">الشعار والألوان القوية أصبحا جزءًا رئيسيًا من الهدية، لتظهر القناة بوضوح منذ اللحظة الأولى.</p>
+                  <p className="mt-3 leading-8 text-white/68">عام أول من الحضور الإعلامي، وامتداد لثقة جمهور تابع ودعم وشارك هذه المسيرة.</p>
                 </figcaption>
               </figure>
             </div>
@@ -301,7 +301,7 @@ export default function GiftPage() {
                 </div>
                 <h3 className="text-4xl font-black leading-tight sm:text-6xl">عرض بصري جاهز للمشاركة</h3>
                 <p className="mt-5 max-w-2xl text-lg leading-9 text-[#555]">
-                  اختر بين الفيلم الوثائقي الكامل وفيلم الهدية السريع. كلاهما موجود داخل الصفحة ويمكن تحميله مباشرة.
+                  لحظة تقدير مصورة تحتفي بعام أول من العمل، وبجمهور كان جزءًا من الحضور والنجاح.
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
                   <button
@@ -335,7 +335,7 @@ export default function GiftPage() {
               <div className="flex flex-col justify-center border border-[#dedede] bg-white p-6 shadow-xl">
                 <p className="text-sm font-black text-[#c9151d]">معرض تفاعلي</p>
                 <h3 className="mt-3 text-4xl font-black">اختيار اللقطة</h3>
-                <p className="mt-4 leading-8 text-[#555]">اضغط على أي صورة لتظهر بحجم كبير، أو استخدم أزرار السابق والتالي.</p>
+                <p className="mt-4 leading-8 text-[#555]">مجموعة مختارة من الصور تحفظ حضور نسرين في عام القناة الأول.</p>
                 <div className="mt-6 flex gap-3">
                   <button type="button" onClick={previousImage} className="inline-flex items-center gap-2 border border-[#c9151d]/30 px-4 py-3 font-bold text-[#c9151d] transition hover:bg-[#fff3f4]">
                     <ChevronRight className="h-4 w-4" />
@@ -400,7 +400,7 @@ export default function GiftPage() {
             </div>
             <p className="text-xl font-bold leading-10">{dedicationText}</p>
             <p className="mt-5 text-lg leading-9 text-[#555]">
-              هذه الهدية صممت لتكون حديثة، خفيفة، وقابلة للمشاركة: صورة واضحة، رسالة محترمة، وفيديوهات جاهزة.
+              عام أول من الحضور، وبداية أجمل لمسيرة تستحق التقدير والاحتفاء.
             </p>
             <button type="button" onClick={() => copyText(dedicationText, "الإهداء")} className="mt-7 inline-flex items-center gap-2 bg-[#c9151d] px-5 py-3 font-bold text-white transition hover:bg-[#ff2f3d]">
               <Copy className="h-4 w-4" />
