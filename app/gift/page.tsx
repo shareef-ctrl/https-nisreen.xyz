@@ -51,10 +51,13 @@ const videoPoster = "/gift/aleunwan24-anniversary-poster.jpg";
 const documentaryVideoUrl = "/gift/aleunwan24-documentary-anniversary-4k.mp4";
 const documentaryPoster = "/gift/aleunwan24-documentary-poster.jpg";
 const channelCover = "/gift/aleunwan24-cover.jpg";
+const channelLogo = "/gift/aleunwan24-logo.jpg";
 
 export default function GiftPage() {
   const [copied, setCopied] = useState("");
   const [letterOpen, setLetterOpen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const selectedImage = gallery[selectedImageIndex];
   const giftLink = useMemo(() => {
     if (typeof window === "undefined") return "https://nisreen.xyz/";
     return window.location.origin.includes("127.0.0.1") ? "https://nisreen.xyz/" : window.location.href;
@@ -91,7 +94,7 @@ export default function GiftPage() {
         <img src="/gift/nessren-soft.jpg" alt="نسرين النمر" className="gift-kenburns absolute inset-0 h-full w-full object-cover object-[30%_center] opacity-72" />
         <div className="absolute inset-0 bg-[linear-gradient(270deg,rgba(12,12,12,.96),rgba(12,12,12,.66),rgba(12,12,12,.16))]" />
         <div className="absolute inset-x-0 bottom-0 h-36 bg-[linear-gradient(0deg,#111,transparent)]" />
-        <div className="absolute inset-x-0 top-0 h-1 bg-[#d6b55d]" />
+        <div className="absolute inset-x-0 top-0 h-1 bg-[#c9151d]" />
 
         <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-5 py-6 sm:px-8 lg:px-10">
           <header className="flex items-center justify-between gap-4">
@@ -103,14 +106,14 @@ export default function GiftPage() {
 
           <div className="flex flex-1 items-end py-12">
             <div className="max-w-2xl">
-              <div className="mb-5 inline-flex items-center gap-2 border border-[#d6b55d]/60 bg-black/32 px-4 py-2 text-sm font-bold text-[#f3d985] backdrop-blur">
+              <div className="mb-5 inline-flex items-center gap-2 border border-[#c9151d]/70 bg-black/38 px-4 py-2 text-sm font-bold text-white backdrop-blur">
                 <Sparkles className="h-4 w-4" />
                 هدية رقمية بمناسبة العام الأول
               </div>
               <p className="text-sm font-bold text-white/64">إهداء خاص إلى الأستاذة نسرين النمر</p>
               <h1 className="gift-elegant mt-3 max-w-2xl text-4xl font-black leading-[1.08] sm:text-6xl lg:text-7xl">
                 عام من
-                <span className="block text-[#f3d985]">العنوان 24</span>
+                <span className="block text-[#ff2f3d]">العنوان 24</span>
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-8 text-white/82">
                 صفحة احتفاء راقية تجمع القناة وصاحبة الحضور في عمل واحد: رسالة تقدير، فيلم وثائقي،
@@ -118,11 +121,11 @@ export default function GiftPage() {
               </p>
 
               <div className="mt-7 flex flex-wrap gap-3">
-                <button type="button" onClick={() => setLetterOpen(true)} className="inline-flex items-center gap-2 bg-[#f3d985] px-5 py-3 font-bold text-[#171717] transition hover:bg-[#ffe7a3]">
+                <button type="button" onClick={() => setLetterOpen(true)} className="inline-flex items-center gap-2 bg-[#c9151d] px-5 py-3 font-bold text-white transition hover:bg-[#ff2f3d]">
                   <Heart className="h-4 w-4" />
                   رسالة الإهداء
                 </button>
-                <button type="button" onClick={() => copyText(giftLink, "الرابط")} className="inline-flex items-center gap-2 border border-white/25 bg-white/10 px-5 py-3 font-bold text-white transition hover:bg-white/18">
+                <button type="button" onClick={() => copyText(giftLink, "الرابط")} className="inline-flex items-center gap-2 border border-white/25 bg-white/10 px-5 py-3 font-bold text-white transition hover:border-[#ff2f3d] hover:bg-[#c9151d]/35">
                   <Copy className="h-4 w-4" />
                   {copied === "الرابط" ? "تم نسخ الرابط" : "نسخ الرابط"}
                 </button>
@@ -137,8 +140,8 @@ export default function GiftPage() {
           {highlights.map((item) => {
             const Icon = item.icon;
             return (
-              <article key={item.title} className="border border-white/12 bg-white/[.06] p-5">
-                <Icon className="mb-5 h-8 w-8 text-[#f3d985]" />
+              <article key={item.title} className="border border-[#c9151d]/35 bg-white/[.06] p-5 transition hover:-translate-y-1 hover:border-[#ff2f3d] hover:bg-[#c9151d]/18">
+                <Icon className="mb-5 h-8 w-8 text-[#ff2f3d]" />
                 <h2 className="text-2xl font-black">{item.title}</h2>
                 <p className="mt-3 leading-8 text-white/72">{item.text}</p>
               </article>
@@ -154,7 +157,7 @@ export default function GiftPage() {
           </figure>
 
           <div className="flex flex-col justify-center">
-            <p className="text-sm font-black text-[#9d1f2e]">هوية القناة</p>
+            <p className="text-sm font-black text-[#c9151d]">هوية القناة</p>
             <h2 className="mt-2 text-3xl font-black leading-tight sm:text-5xl">العنوان 24.. للخبر حضور وللحقيقة عنوان</h2>
             <p className="mt-5 text-lg leading-9 text-[#555]">
               هذه الهدية تحتفي بعام من العمل والعطاء، وتضع اسم القناة ونسرين النمر في مساحة واحدة
@@ -162,8 +165,8 @@ export default function GiftPage() {
             </p>
             <div className="mt-7 grid gap-3 sm:grid-cols-3">
               {moments.map((moment, index) => (
-                <article key={moment} className="border-r-4 border-[#9d1f2e] bg-white p-4 shadow-sm">
-                  <p className="text-sm font-black text-[#c29a38]">0{index + 1}</p>
+                <article key={moment} className="border-r-4 border-[#c9151d] bg-white p-4 shadow-sm transition hover:bg-[#fff3f4]">
+                  <p className="text-sm font-black text-[#c9151d]">0{index + 1}</p>
                   <p className="mt-2 leading-7 text-[#3b3b3b]">{moment}</p>
                 </article>
               ))}
@@ -191,25 +194,25 @@ export default function GiftPage() {
 
       <section className="bg-white px-5 py-16 sm:px-8">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.05fr_.95fr]">
-          <article className="relative overflow-hidden border border-[#d6b55d] bg-[#fff8e9] p-6 shadow-xl sm:p-8">
-            <div className="absolute inset-4 border border-[#d6b55d]/45" />
+          <article className="relative overflow-hidden border border-[#c9151d] bg-white p-6 shadow-xl sm:p-8">
+            <div className="absolute inset-4 border border-[#c9151d]/25" />
             <div className="relative">
-              <div className="mb-6 flex items-center gap-3 text-[#9d1f2e]">
+              <div className="mb-6 flex items-center gap-3 text-[#c9151d]">
                 <BadgeCheck className="h-5 w-5" />
                 <span className="font-bold">شهادة تقدير رقمية</span>
               </div>
               <h2 className="gift-elegant text-4xl font-black leading-tight sm:text-6xl">إلى نسرين النمر</h2>
               <p className="mt-6 text-xl font-bold leading-10 text-[#252018]">{dedicationText}</p>
-              <div className="mt-7 border-r-4 border-[#9d1f2e] bg-white/72 px-5 py-4">
-                <p className="text-sm font-bold text-[#9d1f2e]">مقدمة بمحبة وتقدير من</p>
+              <div className="mt-7 border-r-4 border-[#c9151d] bg-[#fff3f4] px-5 py-4">
+                <p className="text-sm font-bold text-[#c9151d]">مقدمة بمحبة وتقدير من</p>
                 <p className="mt-1 text-3xl font-black">نجود</p>
               </div>
               <div className="mt-7 flex flex-wrap gap-3">
-                <button type="button" onClick={() => copyText(dedicationText, "الإهداء")} className="inline-flex items-center gap-2 bg-[#171717] px-5 py-3 font-bold text-white transition hover:bg-[#303030]">
+                <button type="button" onClick={() => copyText(dedicationText, "الإهداء")} className="inline-flex items-center gap-2 bg-[#c9151d] px-5 py-3 font-bold text-white transition hover:bg-[#ff2f3d]">
                   <Copy className="h-4 w-4" />
                   {copied === "الإهداء" ? "تم نسخ الإهداء" : "نسخ الإهداء"}
                 </button>
-                <button type="button" onClick={shareGift} className="inline-flex items-center gap-2 border border-[#c8bd9e] bg-white px-5 py-3 font-bold text-[#33250a] transition hover:bg-[#f7ecd2]">
+                <button type="button" onClick={shareGift} className="inline-flex items-center gap-2 border border-[#c9151d]/30 bg-white px-5 py-3 font-bold text-[#c9151d] transition hover:bg-[#fff3f4]">
                   <Share2 className="h-4 w-4" />
                   مشاركة الصفحة
                 </button>
@@ -218,22 +221,21 @@ export default function GiftPage() {
           </article>
 
           <div className="grid gap-4">
-            {manifesto.map((line, index) => (
-              <article key={line} className="border border-[#e5dac1] bg-[#f9f6ed] p-5">
-                <Star className="mb-4 h-5 w-5 text-[#c29a38]" />
+            {manifesto.map((line) => (
+              <article key={line} className="border border-[#c9151d]/20 bg-[#fff8f8] p-5 transition hover:border-[#c9151d] hover:bg-white">
+                <Star className="mb-4 h-5 w-5 text-[#c9151d]" />
                 <p className="text-xl font-bold leading-9">{line}</p>
-                <p className="mt-4 text-sm font-black text-[#9d1f2e]">عبارة {index + 1}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-[#121826] px-5 py-16 text-white sm:px-8">
+      <section className="bg-[#111111] px-5 py-16 text-white sm:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-9 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
             <div>
-              <p className="text-sm font-black text-[#f3d985]">أرشيف نسرين المصور</p>
+              <p className="text-sm font-black text-[#ff2f3d]">أرشيف نسرين المصور</p>
               <h2 className="gift-elegant mt-2 text-4xl font-black leading-tight sm:text-6xl">حضور يتكلم بالصور</h2>
             </div>
             <p className="max-w-2xl text-lg leading-9 text-white/72">
@@ -241,16 +243,50 @@ export default function GiftPage() {
             </p>
           </div>
 
+          <div className="mb-5 grid gap-5 lg:grid-cols-[1fr_320px]">
+            <figure className="overflow-hidden border border-[#c9151d]/45 bg-black p-3">
+              <img src={selectedImage.src} alt={`نسرين النمر - ${selectedImage.label}`} className="h-[520px] w-full object-cover" />
+            </figure>
+            <div className="flex flex-col justify-center border border-white/12 bg-white/[.06] p-5">
+              <p className="text-sm font-black text-[#ff2f3d]">صورة تفاعلية</p>
+              <h3 className="mt-3 text-3xl font-black">اختاري اللقطة</h3>
+              <p className="mt-4 leading-8 text-white/70">اضغط على أي صورة من الأرشيف لتظهر هنا بحجم أكبر، أو تنقل بين الصور بأزرار التصفح.</p>
+              <div className="mt-6 flex gap-3">
+                <button
+                  type="button"
+                  onClick={() => setSelectedImageIndex((selectedImageIndex - 1 + gallery.length) % gallery.length)}
+                  className="border border-white/20 px-4 py-3 font-bold text-white transition hover:border-[#ff2f3d] hover:bg-[#c9151d]"
+                >
+                  السابق
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setSelectedImageIndex((selectedImageIndex + 1) % gallery.length)}
+                  className="bg-[#c9151d] px-4 py-3 font-bold text-white transition hover:bg-[#ff2f3d]"
+                >
+                  التالي
+                </button>
+              </div>
+            </div>
+          </div>
+
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
             {gallery.map((image, index) => (
-              <figure key={image.src} className={`group overflow-hidden border border-white/10 bg-[#0b0f19] ${index % 8 === 0 ? "sm:col-span-2 sm:row-span-2" : ""}`}>
+              <button
+                key={image.src}
+                type="button"
+                onClick={() => setSelectedImageIndex(index)}
+                className={`group overflow-hidden border bg-[#0b0f19] text-right transition hover:-translate-y-1 ${
+                  selectedImageIndex === index ? "border-[#ff2f3d] shadow-[0_0_0_3px_rgba(201,21,29,.25)]" : "border-white/10"
+                } ${index % 8 === 0 ? "sm:col-span-2 sm:row-span-2" : ""}`}
+              >
                 <img
                   src={image.src}
                   alt={`نسرين النمر - ${image.label}`}
                   loading="lazy"
                   className={`w-full object-cover opacity-95 transition duration-500 group-hover:scale-105 group-hover:opacity-100 ${index % 8 === 0 ? "h-full min-h-[330px]" : "h-44 sm:h-52"}`}
                 />
-              </figure>
+              </button>
             ))}
           </div>
         </div>
@@ -260,8 +296,8 @@ export default function GiftPage() {
         <img src="/gift/nessren-editorial.jpg" alt="نسرين النمر" className="absolute inset-0 h-full w-full object-cover opacity-24" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(16,16,16,.96),rgba(16,16,16,.78),rgba(16,16,16,.52))]" />
         <div className="relative mx-auto max-w-4xl text-center">
-          <CalendarHeart className="mx-auto mb-5 h-12 w-12 text-[#f3d985]" />
-          <p className="text-sm font-black text-[#f3d985]">ختام الذكرى</p>
+          <CalendarHeart className="mx-auto mb-5 h-12 w-12 text-[#ff2f3d]" />
+          <p className="text-sm font-black text-[#ff2f3d]">ختام الذكرى</p>
           <h2 className="gift-elegant mt-3 text-4xl font-black leading-tight sm:text-6xl">شكرًا لكل من كان جزءًا من عامنا الأول</h2>
           <p className="mx-auto mt-6 max-w-3xl text-xl leading-9 text-white/78">
             كل عام وقناة العنوان 24 أكثر حضورًا وتميزًا، وكل عام ونسرين النمر في مساحة تقدير تليق بما قدمته.
@@ -269,20 +305,20 @@ export default function GiftPage() {
           <div className="mx-auto mt-8 w-fit border border-white/16 bg-white/8 px-6 py-5">
             <ChannelLogo compact />
             <p className="mt-4 text-sm text-white/60">إهداء وتوقيع</p>
-            <p className="text-3xl font-black text-[#f3d985]">نجود</p>
+            <p className="text-3xl font-black text-[#ff2f3d]">نجود</p>
           </div>
         </div>
       </section>
 
       {letterOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/72 px-4 py-6 backdrop-blur-sm">
-          <article className="max-h-[90vh] w-full max-w-2xl overflow-auto border border-[#d6b55d] bg-[#fff8e9] p-6 text-[#171717] shadow-2xl sm:p-8">
+          <article className="max-h-[90vh] w-full max-w-2xl overflow-auto border border-[#c9151d] bg-white p-6 text-[#171717] shadow-2xl sm:p-8">
             <div className="mb-5 flex items-start justify-between gap-4">
               <div>
-                <p className="text-sm font-black text-[#9d1f2e]">رسالة خاصة</p>
+                <p className="text-sm font-black text-[#c9151d]">رسالة خاصة</p>
                 <h2 className="mt-1 text-3xl font-black">إلى نسرين النمر</h2>
               </div>
-              <button type="button" onClick={() => setLetterOpen(false)} className="flex h-10 w-10 items-center justify-center border border-[#d8c99e] bg-white" aria-label="إغلاق الرسالة" title="إغلاق">
+              <button type="button" onClick={() => setLetterOpen(false)} className="flex h-10 w-10 items-center justify-center border border-[#c9151d]/30 bg-white" aria-label="إغلاق الرسالة" title="إغلاق">
                 <X className="h-5 w-5" />
               </button>
             </div>
@@ -291,7 +327,7 @@ export default function GiftPage() {
               هذه الهدية صنعت لتكون خفيفة في شكلها، عميقة في معناها، وقريبة من القلب:
               عام أول من الحضور، وبداية لسنوات أكثر أثرًا.
             </p>
-            <button type="button" onClick={() => copyText(dedicationText, "الإهداء")} className="mt-7 inline-flex items-center gap-2 bg-[#171717] px-5 py-3 font-bold text-white transition hover:bg-[#303030]">
+            <button type="button" onClick={() => copyText(dedicationText, "الإهداء")} className="mt-7 inline-flex items-center gap-2 bg-[#c9151d] px-5 py-3 font-bold text-white transition hover:bg-[#ff2f3d]">
               <Copy className="h-4 w-4" />
               {copied === "الإهداء" ? "تم النسخ" : "نسخ النص"}
             </button>
@@ -326,14 +362,14 @@ function VideoSection({
           </video>
         </div>
         <div className={`${primary ? "order-1 lg:order-2" : "order-1"} flex flex-col justify-center`}>
-          <div className="mb-5 inline-flex w-fit items-center gap-2 border border-[#f3d985]/45 bg-[#f3d985]/10 px-4 py-2 text-sm font-bold text-[#f3d985]">
+          <div className="mb-5 inline-flex w-fit items-center gap-2 border border-[#c9151d]/55 bg-[#c9151d]/14 px-4 py-2 text-sm font-bold text-[#ff2f3d]">
             {primary ? <Film className="h-4 w-4" /> : <PlayCircle className="h-4 w-4" />}
             {eyebrow}
           </div>
           <h2 className="text-3xl font-black leading-tight sm:text-5xl">{title}</h2>
           <p className="mt-5 max-w-2xl text-lg leading-9 text-white/72">{text}</p>
           <div className="mt-7 flex flex-wrap gap-3">
-            <a href={src} download className="inline-flex items-center gap-2 bg-[#f3d985] px-5 py-3 font-bold text-[#171717] transition hover:bg-[#ffe7a3]">
+            <a href={src} download className="inline-flex items-center gap-2 bg-[#c9151d] px-5 py-3 font-bold text-white transition hover:bg-[#ff2f3d]">
               <Download className="h-4 w-4" />
               تحميل الفيديو
             </a>
@@ -347,7 +383,7 @@ function VideoSection({
 function Stat({ value, label }: { value: string; label: string }) {
   return (
     <div className="border border-white/12 bg-white/[.07] p-4">
-      <p className="text-3xl font-black text-[#f3d985]">{value}</p>
+      <p className="text-3xl font-black text-[#ff2f3d]">{value}</p>
       <p className="mt-1 text-sm leading-6 text-white/70">{label}</p>
     </div>
   );
@@ -358,13 +394,13 @@ function ChannelLogo({ compact = false, showImage = false }: { compact?: boolean
     return (
       <div className="inline-flex items-center gap-3" aria-label="شعار قناة العنوان 24">
         <img
-          src="/gift/aleunwan24-cover.jpg"
+          src={channelLogo}
           alt="شعار قناة العنوان 24"
-          className="h-14 w-28 border border-[#f3d985]/50 bg-black object-cover shadow-lg sm:h-16 sm:w-32"
+          className="h-14 w-28 border border-[#c9151d]/45 bg-white object-contain p-1 shadow-lg sm:h-16 sm:w-32"
         />
         <span className="hidden leading-tight sm:block">
           <span className="block text-sm font-bold text-white/62">قناة</span>
-          <span className="block text-2xl font-black text-[#f3d985]">العنوان 24</span>
+          <span className="block text-2xl font-black text-[#ff2f3d]">العنوان 24</span>
         </span>
       </div>
     );
@@ -372,11 +408,11 @@ function ChannelLogo({ compact = false, showImage = false }: { compact?: boolean
 
   return (
     <div className="inline-flex items-center gap-3" aria-label="شعار قناة العنوان 24">
-      <span className={`flex items-center justify-center border border-[#f3d985] bg-[#f3d985] font-black text-[#171717] ${compact ? "h-10 w-10 text-xl" : "h-12 w-12 text-2xl"}`}>
+      <span className={`flex items-center justify-center border border-[#c9151d] bg-[#c9151d] font-black text-white ${compact ? "h-10 w-10 text-xl" : "h-12 w-12 text-2xl"}`}>
         24
       </span>
       <span className="leading-tight">
-        <span className={`block font-black text-[#f3d985] ${compact ? "text-xl" : "text-2xl"}`}>العنوان</span>
+        <span className={`block font-black text-[#ff2f3d] ${compact ? "text-xl" : "text-2xl"}`}>العنوان</span>
         <span className="block text-xs font-bold text-white/62">ALEUNWAN TV</span>
       </span>
     </div>
