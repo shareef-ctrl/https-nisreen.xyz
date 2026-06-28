@@ -10,7 +10,6 @@ import {
   Gem,
   Heart,
   PlayCircle,
-  Printer,
   Share2,
   Sparkles,
   Star,
@@ -89,36 +88,36 @@ export default function GiftPage() {
   return (
     <main className="min-h-screen bg-[#f7f3e8] text-[#171717]" dir="rtl">
       <section className="relative min-h-screen overflow-hidden bg-[#111111] text-white">
-        <img src="/gift/nessren-soft.jpg" alt="نسرين النمر" className="gift-kenburns absolute inset-0 h-full w-full object-cover object-[76%_center] opacity-62" />
-        <div className="absolute inset-0 bg-[linear-gradient(270deg,rgba(12,12,12,.97),rgba(12,12,12,.82),rgba(12,12,12,.28))]" />
+        <img src="/gift/nessren-soft.jpg" alt="نسرين النمر" className="gift-kenburns absolute inset-0 h-full w-full object-cover object-[30%_center] opacity-72" />
+        <div className="absolute inset-0 bg-[linear-gradient(270deg,rgba(12,12,12,.96),rgba(12,12,12,.66),rgba(12,12,12,.16))]" />
         <div className="absolute inset-x-0 bottom-0 h-36 bg-[linear-gradient(0deg,#111,transparent)]" />
         <div className="absolute inset-x-0 top-0 h-1 bg-[#d6b55d]" />
 
         <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-5 py-6 sm:px-8 lg:px-10">
           <header className="flex items-center justify-between gap-4">
-            <ChannelLogo />
+            <ChannelLogo showImage />
             <button type="button" onClick={shareGift} className="flex h-12 w-12 items-center justify-center border border-white/25 bg-white/10 transition hover:bg-white/18" aria-label="مشاركة الهدية" title="مشاركة الهدية">
               <Share2 className="h-5 w-5" />
             </button>
           </header>
 
-          <div className="grid flex-1 items-end gap-10 py-12 lg:grid-cols-[1fr_340px]">
-            <div className="max-w-4xl">
-              <div className="mb-6 inline-flex items-center gap-2 border border-[#d6b55d]/60 bg-[#d6b55d]/14 px-4 py-2 text-sm font-bold text-[#f3d985]">
+          <div className="flex flex-1 items-end py-12">
+            <div className="max-w-2xl">
+              <div className="mb-5 inline-flex items-center gap-2 border border-[#d6b55d]/60 bg-black/32 px-4 py-2 text-sm font-bold text-[#f3d985] backdrop-blur">
                 <Sparkles className="h-4 w-4" />
                 هدية رقمية بمناسبة العام الأول
               </div>
               <p className="text-sm font-bold text-white/64">إهداء خاص إلى الأستاذة نسرين النمر</p>
-              <h1 className="gift-elegant mt-3 max-w-4xl text-5xl font-black leading-[1.05] sm:text-7xl lg:text-8xl">
+              <h1 className="gift-elegant mt-3 max-w-2xl text-4xl font-black leading-[1.08] sm:text-6xl lg:text-7xl">
                 عام من
                 <span className="block text-[#f3d985]">العنوان 24</span>
               </h1>
-              <p className="mt-7 max-w-2xl text-xl leading-9 text-white/82">
+              <p className="mt-6 max-w-xl text-lg leading-8 text-white/82">
                 صفحة احتفاء راقية تجمع القناة وصاحبة الحضور في عمل واحد: رسالة تقدير، فيلم وثائقي،
                 معرض صور، وشهادة رقمية جاهزة للإرسال.
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-7 flex flex-wrap gap-3">
                 <button type="button" onClick={() => setLetterOpen(true)} className="inline-flex items-center gap-2 bg-[#f3d985] px-5 py-3 font-bold text-[#171717] transition hover:bg-[#ffe7a3]">
                   <Heart className="h-4 w-4" />
                   رسالة الإهداء
@@ -127,21 +126,8 @@ export default function GiftPage() {
                   <Copy className="h-4 w-4" />
                   {copied === "الرابط" ? "تم نسخ الرابط" : "نسخ الرابط"}
                 </button>
-                <button type="button" onClick={() => window.print()} className="inline-flex items-center gap-2 border border-[#f3d985]/50 bg-black/22 px-5 py-3 font-bold text-[#f3d985] transition hover:bg-black/40">
-                  <Printer className="h-4 w-4" />
-                  طباعة الشهادة
-                </button>
               </div>
             </div>
-
-            <aside className="border border-white/16 bg-black/38 p-5 backdrop-blur">
-              <p className="mb-4 text-sm font-bold text-[#f3d985]">علامات الهدية</p>
-              <div className="grid gap-3">
-                <Stat value="01" label="عام أول من الانطلاق والحضور" />
-                <Stat value="24" label="هوية القناة وصوت الخبر" />
-                <Stat value="نجود" label="توقيع الهدية بمحبة وتقدير" />
-              </div>
-            </aside>
           </div>
         </div>
       </section>
@@ -367,7 +353,23 @@ function Stat({ value, label }: { value: string; label: string }) {
   );
 }
 
-function ChannelLogo({ compact = false }: { compact?: boolean }) {
+function ChannelLogo({ compact = false, showImage = false }: { compact?: boolean; showImage?: boolean }) {
+  if (showImage) {
+    return (
+      <div className="inline-flex items-center gap-3" aria-label="شعار قناة العنوان 24">
+        <img
+          src="/gift/aleunwan24-cover.jpg"
+          alt="شعار قناة العنوان 24"
+          className="h-14 w-28 border border-[#f3d985]/50 bg-black object-cover shadow-lg sm:h-16 sm:w-32"
+        />
+        <span className="hidden leading-tight sm:block">
+          <span className="block text-sm font-bold text-white/62">قناة</span>
+          <span className="block text-2xl font-black text-[#f3d985]">العنوان 24</span>
+        </span>
+      </div>
+    );
+  }
+
   return (
     <div className="inline-flex items-center gap-3" aria-label="شعار قناة العنوان 24">
       <span className={`flex items-center justify-center border border-[#f3d985] bg-[#f3d985] font-black text-[#171717] ${compact ? "h-10 w-10 text-xl" : "h-12 w-12 text-2xl"}`}>
