@@ -79,6 +79,21 @@ select {
   letter-spacing: 0;
 }
 
+.gift-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.gift-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.18) 42%, transparent 58%);
+  transform: translateX(120%);
+  animation: gift-sheen 4.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
 @keyframes gift-kenburns {
   from {
     transform: scale(1);
@@ -88,8 +103,23 @@ select {
   }
 }
 
+@keyframes gift-sheen {
+  0%,
+  52% {
+    transform: translateX(120%);
+  }
+  78%,
+  100% {
+    transform: translateX(-120%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .gift-kenburns {
+    animation: none;
+  }
+
+  .gift-sheen::after {
     animation: none;
   }
 }
